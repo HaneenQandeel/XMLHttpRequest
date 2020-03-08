@@ -147,7 +147,7 @@ Jahn['isMarried'] = false;
 console.log(Jahn);
 
 //For Loop
-
+var i;
 var pargh = document.getElementsByTagName('p');
 for (i = 1; i < pargh.length; i++) {
 	console.log('This is a paraghraph' + i);
@@ -294,3 +294,33 @@ const person = {
 };
 person.greet();
 console.log(person.name);
+
+
+const UserId = 'DB123';
+const userH = {
+  name : 'haneenJ',
+  age : 30
+}
+const ClickBtn = document.querySelector('.one button');
+const retrBtn = document.getElementById('retrBtn')
+ClickBtn.addEventListener('click', () =>
+{
+  localStorage.setItem('hanen', UserId)
+  localStorage.setItem('haneenJ', JSON.stringify(userH))
+});
+
+retrBtn.addEventListener('click', () =>
+{
+  // const clickId = localStorage.getItem('UserId');
+  // const retrId = JSON.parse(localStorage.getItem('userH'));
+  // console.log(retrId,'jjjs')
+  const extractedId = sessionStorage.getItem('UserId');
+  const extractedUser = JSON.parse(localStorage.getItem('userH'));
+  console.log(extractedUser);
+  if (extractedId) {
+    console.log('Got the id - ' + extractedId);
+  } else {
+    console.log('Could not find id.');
+  }
+});
+
